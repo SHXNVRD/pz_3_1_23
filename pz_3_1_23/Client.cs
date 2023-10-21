@@ -15,5 +15,7 @@ public partial class Client
 
     public string? Addres { get; set; }
 
+    public string? Client_Password { get; set; }
+
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

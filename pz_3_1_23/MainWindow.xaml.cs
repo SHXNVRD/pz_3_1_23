@@ -15,19 +15,24 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace pz_3_1_23
 {
     public partial class MainWindow : Window
     {
         OooNanContext db;
+        private ObservableCollection<Product> filteredProducts;
+        public List<Product> products { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-
             db = new OooNanContext();
             db.Products.Load();
-            productsGrid.ItemsSource = db.Products.Local.ToBindingList();
+            filteredProducts = new ObservableCollection<Product>(db.Products);
+            productsGrid.ItemsSource = filteredProducts;
+            cbFilter.ItemsSource = db.Products.Local.Select(p => p.Price).Distinct().OrderBy(price => price);
             this.Closing += MainWindow_Closing;
         }
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -40,10 +45,10 @@ namespace pz_3_1_23
         }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            AddItem item = new AddItem();
-            item.Owner = this;
-            item.Db = db;
-            item.Show();
+            AddItem addItem = new AddItem();
+            addItem.Owner = this;
+            addItem.Db = db;
+            addItem.Show();
         }
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
@@ -59,5 +64,59 @@ namespace pz_3_1_23
             }
             db.SaveChangesAsync();
         }
-    }
+
+        private void cbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(productsGrid.ItemsSource).Filter = null;
+
+            if (cbFilter.SelectedItem == null || cbFilter.SelectedItem.ToString() == "Все")
+            {
+                productsGrid.ItemsSource = filteredProducts;
+            }
+            else
+            {
+                string selectedFilter = cbFilter.SelectedItem.ToString();
+
+                decimal filterValue;
+                if (decimal.TryParse(selectedFilter, out filterValue))
+                {
+                    ICollectionView view = CollectionViewSource.GetDefaultView(productsGrid.ItemsSource);
+                    view.Filter = item =>
+                    {
+                        Product product = item as Product;
+                        return product != null && product.Price == filterValue;
+                    };
+
+                    productsGrid.Items.Refresh();
+                }
+            }
+        }
+
+        private void print_Click(object sender, RoutedEventArgs e)
+        {   
+            try
+            {
+                this.IsEnabled = false;
+                PrintDialog pD = new PrintDialog();
+                if (pD.ShowDialog() == true)
+                {
+                    pD.PrintVisual(productsGrid, "OOO NAN");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("При попытке печати возникла ошибка!");
+            }   
+            finally
+            {
+                this.IsEnabled = true;
+            }
+
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            productsGrid.ItemsSource = db.Products.Local.Where(x => x.Title.Contains(searchTextBox.Text)).ToList();
+        }
+    } 
 }

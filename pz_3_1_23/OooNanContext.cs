@@ -197,7 +197,7 @@ public partial class OooNanContext : DbContext
                 .HasColumnName("Status");
         });
 
-        OnModelCreatingPartial(modelBuilder);
+        base.OnModelCreating(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

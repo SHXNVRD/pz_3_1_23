@@ -51,7 +51,6 @@ namespace pz_3_1_23
             {
                 MessageBox.Show("Ошибка");
             }
-           
         }
     }
 }

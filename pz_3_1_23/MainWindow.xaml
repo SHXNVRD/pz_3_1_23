@@ -14,22 +14,36 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" x:Name="productsGrid">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="70"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Название" Width="110"/>
-                <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="70"/>
-                <DataGridTextColumn Binding="{Binding Description}" Header="Описание" Width="110"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
-            <Button x:Name="updateButton" Content="Обновить" Click="updateButton_Click" />
-            <Button x:Name="addButton" Content="Добавить" Click="addButton_Click" />
-            <Button x:Name="deleteButton" Content="Удалить" Click="deleteButton_Click" />
-        </StackPanel>
+        <DockPanel>
+            <ToolBar DockPanel.Dock="Top" Height="30" VerticalAlignment="Top">
+                <ComboBox x:Name="cbFilter" ToolTip="Отфильтровать" Width="60" SelectionChanged="cbFilter_SelectionChanged"/>
+                <TextBox x:Name="searchTextBox" Width="100" Margin="15 0 0 0"/>
+                <Button x:Name="searchButton" Content="Найти" Width="70" Margin="15 0 0 0" Click="searchButton_Click"/>
+            </ToolBar>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="177*"/>
+                    <ColumnDefinition Width="623*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <DataGrid AutoGenerateColumns="False" x:Name="productsGrid" CanUserAddRows="False" Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="70"/>
+                        <DataGridTextColumn Binding="{Binding Title}" Header="Название" Width="110"/>
+                        <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="70"/>
+                        <DataGridTextColumn Binding="{Binding Description}" Header="Описание" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="120,358,0,0" Grid.RowSpan="2">
+                    <Button x:Name="updateButton" Content="Обновить" Click="updateButton_Click" />
+                    <Button x:Name="addButton" Content="Добавить" Click="addButton_Click" />
+                    <Button x:Name="deleteButton" Content="Удалить" Click="deleteButton_Click" />
+                    <Button x:Name="printButton" Content="Печать" Click="print_Click"/>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>
