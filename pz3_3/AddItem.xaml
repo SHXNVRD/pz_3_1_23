@@ -1,0 +1,47 @@
+﻿<Window x:Class="pz3_3.AddItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pz3_3"
+        mc:Ignorable="d"
+        Title="AddItem" Height="350" Width="400">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="0 4 0 8" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="20 4 0 8" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Orientation="Vertical">
+            <Label x:Name="NameLabel" Content="Имя" Margin="20 35 0 8"/>
+            <Label x:Name="BithdayLabel" Content="День рождения"/>
+            <Label x:Name="PhoneLabel" Content="Телефон"/>
+            <Label x:Name="AddressLabel" Content="Адрес"/>
+            <Label x:Name="SexLabel" Content="Пол"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Orientation="Vertical">
+            <TextBox x:Name="NameTextBox" Margin="0 35 0 8"/>
+            <TextBox x:Name="BirthdayTextBox"/>
+            <TextBox x:Name="PhoneTextBox"/>
+            <TextBox x:Name="AddressTextBox"/>
+            <ComboBox x:Name="cbSex"/>
+        </StackPanel>
+        <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="100" Height="30" Margin="0 20 0 40"  Content="Применить" Click="AcceptAddItem_Click"/>
+    </Grid>
+</Window>
