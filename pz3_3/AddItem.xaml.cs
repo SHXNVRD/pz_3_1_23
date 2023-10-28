@@ -1,7 +1,10 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -19,15 +22,25 @@ namespace pz3_3
     public partial class AddItem : Window
     {
         private ApplicationContext db;
+        internal static List<Sex> sexes;
 
         internal ApplicationContext Db
         {
             get { return db; }
             set { db = value; }
         }
+
         public AddItem()
         {
             InitializeComponent();
+            SetComboBox();
+        }
+
+        private void SetComboBox()
+        {
+            cbSex.ItemsSource = sexes;
+            cbSex.DisplayMemberPath = "Title";
+            cbSex.SelectedValuePath = "Id";
         }
 
         private void AcceptAddItem_Click(object sender, RoutedEventArgs e)
@@ -40,21 +53,18 @@ namespace pz3_3
 
             try
             {
-                User user = new User();
+                User user = new User
+                {
+                    Name = NameTextBox.Text,
+                    Birthday = DateTime.Parse(BirthdayTextBox.Text),
+                    Phone = PhoneTextBox.Text,
+                    Address = AddressTextBox.Text,
+                    SexId = Convert.ToUInt32(cbSex.SelectedValue)
+                };
 
-                cbSex.ItemsSource = db.Sexes.ToList();
-                cbSex.DisplayMemberPath = "Title";
-                cbSex.SelectedValuePath = "Id";
+                Db.Users.Add(user);
 
-                user.Name = NameTextBox.Text;
-                user.Birthday = DateTime.Parse(BirthdayTextBox.Text);
-                user.Phone = PhoneTextBox.Text;
-                user.Address = AddressTextBox.Text;
-                Binding binding = new Binding("SexId");
-                binding.Source = user;  
-                cbSex.SetBinding(ComboBox.SelectedValueProperty, binding);
-
-                Db.SaveChanges();
+                Db.SaveChangesAsync();
 
                 MessageBox.Show("Данные успешно добавлены");
             }

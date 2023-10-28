@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -12,6 +13,9 @@ namespace pz3_3
         {
             InitializeComponent();
             db = new ApplicationContext();
+            db.Sexes.Load();
+            db.Users.Load();
+            dgUsers.ItemsSource = db.Users.Local.ToList();
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
@@ -21,6 +25,7 @@ namespace pz3_3
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            AddItem.sexes = db.Sexes.Local.ToList();
             AddItem addItem = new AddItem();
             addItem.Owner = this;
             addItem.Db = db;
