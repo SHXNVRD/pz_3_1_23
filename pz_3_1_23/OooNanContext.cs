@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using System.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace pz_3_1_23;
@@ -37,13 +34,17 @@ public partial class OooNanContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var builder = new ConfigurationBuilder()
-              .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-              .AddJsonFile("appsettings.json");
-        var configuration = builder.Build();
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
+        //var builder = new ConfigurationBuilder()
+        //    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+        //    .AddJsonFile("appsettings.json");
+        //var configuration = builder.Build();
+        //var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-        optionsBuilder.UseSqlServer(connectionString);
+        var config = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json", optional: false).Build();
+
+        optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+        optionsBuilder.LogTo(message => System.Diagnostics.Debug.WriteLine(message));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

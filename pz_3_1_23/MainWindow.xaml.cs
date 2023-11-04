@@ -1,19 +1,9 @@
-﻿using System.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
@@ -24,7 +14,7 @@ namespace pz_3_1_23
     {
         OooNanContext db;
         private ObservableCollection<Product> filteredProducts;
-        public List<Product> products { get; set; }
+        private List<Product> products { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -39,10 +29,12 @@ namespace pz_3_1_23
         {
             db.DisposeAsync();
         }
+
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             db.SaveChangesAsync();
         }
+
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             AddItem addItem = new AddItem();
@@ -50,6 +42,7 @@ namespace pz_3_1_23
             addItem.Db = db;
             addItem.Show();
         }
+
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (productsGrid.SelectedItems.Count > 0)

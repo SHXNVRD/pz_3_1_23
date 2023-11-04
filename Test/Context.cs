@@ -14,6 +14,7 @@ namespace Test
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=LAPTOP-JT57IK1E\SQLEXPRESS;Database=pz3_3.db;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.LogTo(Console.WriteLine);
         }
     }
 }
