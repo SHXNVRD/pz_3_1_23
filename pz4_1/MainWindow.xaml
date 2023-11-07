@@ -38,7 +38,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
+
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
@@ -52,8 +52,9 @@
                     <Label Content="Добавить пользователя" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Grid Margin="5" x:Name="gAdd">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="76*"/>
+                            <ColumnDefinition Width="113*"/>
+                            <ColumnDefinition Width="189*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -64,18 +65,18 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <Label Grid.Row="0" Grid.Column="0" Content="ID"/>
-                        <TextBox x:Name="tbId" Grid.Row="0" Grid.Column="1" Text="{Binding Id}"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="Имя"/>
-                        <TextBox x:Name="tbName" Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
-                        <Label Grid.Row="2" Grid.Column="0" Content="Дата рождения"/>
-                        <TextBox x:Name="tbBirthday" Grid.Row="2" Grid.Column="1" Text="{Binding Birthday}"/>
-                        <Label Grid.Row="3" Grid.Column="0" Content="Телефон"/>
-                        <TextBox x:Name="tbPhone" Grid.Row="3" Grid.Column="1" Text="{Binding Phone}"/>
-                        <Label Grid.Row="4" Grid.Column="0" Content="Адрес"/>
-                        <TextBox x:Name="tbAddress" Grid.Row="4" Grid.Column="1" Text="{Binding Адрес}"/>
+                        <Label Grid.Row="0" Grid.Column="0" Content="ID" Grid.ColumnSpan="2" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <TextBox x:Name="tbId" Grid.Row="0" Grid.Column="2" Text="{Binding Id}" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="Имя" Grid.ColumnSpan="2" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <TextBox x:Name="tbName" Grid.Row="1" Grid.Column="2" Text="{Binding Name}" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <Label Grid.Row="2" Grid.Column="0" Content="Дата рождения" Grid.ColumnSpan="2" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <TextBox x:Name="tbBirthday" Grid.Row="2" Grid.Column="2" Text="{Binding Birthday}" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <Label Grid.Row="3" Grid.Column="0" Content="Телефон" Grid.ColumnSpan="2" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <TextBox x:Name="tbPhone" Grid.Row="3" Grid.Column="2" Text="{Binding Phone}" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                        <Label Grid.Row="4" Grid.Column="0" Content="Адрес" Grid.ColumnSpan="2" Margin="0,0,0,30" Grid.RowSpan="2"/>
+                        <TextBox x:Name="tbAddress" Grid.Row="4" Grid.Column="2" Text="{Binding Адрес}" Margin="0,0,0,30" Grid.RowSpan="2"/>
 
-                        <Button Grid.Row="5" Margin="0 10 0 0" Grid.ColumnSpan="2" Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Click="AddButton_Click"/>
+                        <Button Grid.Row="5" Margin="63,0,0,0" Grid.ColumnSpan="2" Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Click="AddButton_Click" Grid.Column="1"/>
                     </Grid>
                 </StackPanel>
             </Border>
