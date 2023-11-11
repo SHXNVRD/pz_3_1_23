@@ -1,0 +1,32 @@
+﻿<Window x:Class="pz5_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pz5_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="#0ce6f2"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="#0ce6f2"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#0098db" Panel.ZIndex="-1"></Grid>
+        <Image Source="D:\dotnet\repos\pz_3_1_23\pz5_1\Resources\icon.ico" HorizontalAlignment="Left"/>
+        <TextBlock Text="Клининговая компания" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Button Content="Назад" x:Name="bBack" HorizontalAlignment="Right" Margin="10" Width="100" Click="bBack_Click"/>
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"/>
+        <Grid Grid.Row="2" Background="#1e579c"></Grid>
+    </Grid>
+</Window>
