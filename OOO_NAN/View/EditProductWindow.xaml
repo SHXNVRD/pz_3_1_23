@@ -1,0 +1,74 @@
+﻿<Window x:Class="OOO_NAN.View.EditProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOO_NAN.View"
+        mc:Ignorable="d"
+           Title="EditProductWindow" Height="300" Width="400">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="25 5 0 13"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="0 5 25 13"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid" Background="#f8f8f8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1.50*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                Grid.Column="0"
+                Orientation="Vertical"
+                Margin="0 20 0 0">
+
+            <TextBlock Text="Название"/>
+            <TextBlock Text="Цена"/>
+            <TextBlock Text="Описание"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1"
+                Orientation="Vertical"
+                Margin="0 20 0 0">
+
+            <TextBox x:Name="tbTitle"/>
+            <TextBox x:Name="tbPrice"/>
+            <TextBox x:Name="tbDescription"
+                 TextWrapping="Wrap"
+                 Height="65"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+
+            <Button x:Name="bSave"
+                Margin="0 0 5 0"
+                IsDefault="True"
+                Content="Сохранить"/>
+            <Button x:Name="bCancel"
+                Margin="0 0 20 0"
+                IsCancel="true"
+                Content="Отменить"/>
+        </StackPanel>
+    </Grid>
+</Window>
