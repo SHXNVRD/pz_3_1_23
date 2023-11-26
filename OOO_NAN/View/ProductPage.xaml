@@ -3,23 +3,33 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"  
       xmlns:local="clr-namespace:OOO_NAN.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductPage">
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Grid>
         <DataGrid AutoGenerateColumns="False"
-              x:Name="productsGrid"
-              CanUserAddRows="False"
-              CanUserDeleteRows="False"
-              CanUserReorderColumns="False">
+                  x:Name="productsGrid"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserReorderColumns="False"
+                  ItemsSource="{Binding Products}"
+                  SelectedItem="{Binding SelectedProduct, Mode=TwoWay}">
 
-            <!--<DataGrid.ContextMenu>
+            <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Редактировать"
-                          Click="EditMenuItem_Click"/>
+                              Click="bEditProduct_Click"/>
                 </ContextMenu>
-            </DataGrid.ContextMenu-->>
+            </DataGrid.ContextMenu>
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="0.1*"/>

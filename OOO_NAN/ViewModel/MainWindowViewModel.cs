@@ -15,17 +15,14 @@ namespace OOO_NAN.ModelView
 {
     public class MainWindowViewModel : Common.ViewModelBase
     {
-        OooNanContext db = new OooNanContext();
         private ObservableCollection<string> tableList;
-        private Page currentPage;
         private string selectedTable;
-        private Uri selectedViewModel;
+        private Uri selectedView;
         private RelayCommand? selectedTableCommand;
 
         public MainWindowViewModel()
         {
             FillTables();
-            currentPage = new Page();
         }
 
         public ObservableCollection<string> TableList
@@ -34,16 +31,6 @@ namespace OOO_NAN.ModelView
             set
             {
                 tableList = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Page CurrentPage
-        {
-            get { return currentPage; }
-            set
-            {
-                currentPage = value;
                 OnPropertyChanged();
             }
         }
@@ -58,16 +45,17 @@ namespace OOO_NAN.ModelView
             }
         }
 
-        public Uri SelectedViewModel
+        public Uri SelectedView
         {
-            get { return selectedViewModel; }
+            get { return selectedView; }
             set
             {
-                selectedViewModel = value;
+                selectedView = value;
                 OnPropertyChanged();
             }
         }
 
+        // Команда создания страницы ProductPage
         public RelayCommand SelectedTableCommand
         {
             get
@@ -79,30 +67,20 @@ namespace OOO_NAN.ModelView
                         {
                             if (selectedTable.Equals("Product", StringComparison.OrdinalIgnoreCase))
                             {
-                                SelectedViewModel = new Uri("ProductPage.xaml", UriKind.Relative);
+                                SelectedView = new Uri("ProductPage.xaml", UriKind.Relative);
                             }
                         }
                     }));
             }
         }
 
-        // Загрузка списка таблиц БД
+        // Загрузка списка таблиц из БД
         private void FillTables()
         {
-            TableList = new ObservableCollection<string>(db.Model.GetEntityTypes()
-                .Select(n => n.ClrType.Name).ToList());
-        }
-
-        public void OnSelectedTableChanged()
-        {
-            switch (SelectedTable)
+            using(OooNanContext db = new OooNanContext())
             {
-                case "Product":
-                    currentPage = new ProductPage();
-                    
-                    break;
-                default:
-                    break;
+                TableList = new ObservableCollection<string>(db.Model.GetEntityTypes()
+                .Select(n => n.ClrType.Name).ToList());
             }
         }
     }

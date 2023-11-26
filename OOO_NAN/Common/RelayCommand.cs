@@ -19,6 +19,11 @@ namespace OOO_NAN.Model
             this.canExecute = canExecute;
         }
 
+        public RelayCommand(Func<object?, bool>? canExecute = null)
+        {
+            this.canExecute = canExecute;
+        }
+
         public bool CanExecute(object? parameter)
         {
             return canExecute == null || canExecute(parameter);

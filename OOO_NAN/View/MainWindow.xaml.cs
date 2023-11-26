@@ -16,6 +16,7 @@ namespace OOO_NAN
     {
         public MainWindow()
         {
+            InitializeComponent();
             DataContext = new MainWindowViewModel();
         }
         //    OooNanContext db;

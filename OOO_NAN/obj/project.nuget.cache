@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "3bp+CRqpcCjnvvZGogjfmTa4FBh6k5PjoWf2OwdTejh26VNIGW5f8IfbpbwlqIjaXdyBeBS0sPx3iZvu7wuMuA==",
+  "dgSpecHash": "S657nhmgChkemqN1zeI7VEU+cXzN1dNdygs6PHapiWBrJyQK6tw+jxk5ywfVo+uwxhvJOWG5krCE9M7+LpmKuA==",
   "success": true,
   "projectFilePath": "D:\\dotnet\\repos\\OOO_NAN\\OOO_NAN\\OOO_NAN.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rodion\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Rodion\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\Rodion\\.nuget\\packages\\materialdesignextensions\\3.3.0\\materialdesignextensions.3.3.0.nupkg.sha512",
+    "C:\\Users\\Rodion\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",

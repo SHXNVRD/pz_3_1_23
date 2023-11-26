@@ -8,6 +8,6 @@ namespace OOO_NAN.Common
 {
     public abstract class PageViewModelBase : ViewModelBase
     {
-    public string Title { get; private set; }
+        public string Title { get; private set; }
     }
 }

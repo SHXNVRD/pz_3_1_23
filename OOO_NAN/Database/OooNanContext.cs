@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace OOO_NAN.Model;
 
@@ -34,14 +35,10 @@ public partial class OooNanContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        //var builder = new ConfigurationBuilder()
-        //    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-        //    .AddJsonFile("appsettings.json");
-        //var configuration = builder.Build();
-        //var connectionString = configuration.GetConnectionString("DefaultConnection");
-
         var config = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json", optional: false).Build();
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: false)
+            .Build();
 
         optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
     }

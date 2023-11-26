@@ -62,13 +62,15 @@
                 HorizontalAlignment="Right">
 
             <Button x:Name="bSave"
+                    Click="SaveButton_Click"
                 Margin="0 0 5 0"
                 IsDefault="True"
                 Content="Сохранить"/>
             <Button x:Name="bCancel"
-                Margin="0 0 20 0"
-                IsCancel="true"
-                Content="Отменить"/>
+                    Click="bCancel_Click"
+                    Margin="0 0 20 0"
+                    IsCancel="true"
+                    Content="Отменить"/>
         </StackPanel>
     </Grid>
 </Window>
