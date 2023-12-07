@@ -53,9 +53,7 @@
                          BorderBrush="LightGray"/>
                 <Button Content="Найти"
                         Margin="3 0 0 0"
-                        FontSize="16"
-                        Background="Black"
-                        Foreground="White"/>
+                        FontSize="16"/>
             </StackPanel>
         </StackPanel>
 

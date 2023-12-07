@@ -22,30 +22,40 @@ namespace OOO_NAN
         public Autorization()
         {
             InitializeComponent();
+            DataContext = new ViewModel.AutorizationViewModel();
             
         }
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        //private void LoginButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    db = new OooNanContext();
+
+        //    try
+        //    {
+        //        var user = db.Clients.Where(x => (x.Email == LoginBox.Text && x.Client_Password == PasswordBox.Password)).FirstOrDefault();
+        //        if (user != null)
+        //        {
+        //            MainWindow mainWindow = new MainWindow();
+        //            mainWindow.Show();
+        //            db.DisposeAsync();
+        //            this.Close();
+        //        }
+        //        else
+        //            MessageBox.Show("Неправильно введён логин или пароль!");
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        MessageBox.Show("Неправильно введён логин или пароль!");
+        //    }
+        //}
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            db = new OooNanContext();
-
-            try
-            {
-                var user = db.Clients.Where(x => (x.Email == LoginBox.Text && x.Client_Password == PasswordBox.Password)).FirstOrDefault();
-                if (user != null)
-                {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    db.DisposeAsync();
-                    this.Close();
-                }
-                else
-                    MessageBox.Show("Неправильно введён логин или пароль!");
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Неправильно введён логин или пароль!");
-            }
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
+
+        private void bMinimize_Click(object sender, RoutedEventArgs e) =>
+            WindowState = WindowState.Minimized;
     }
 }

@@ -3,40 +3,135 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OOO_NAN"
+        xmlns:local="clr-namespace:OOO_NAN.Common"
+        local:WindowCloser.EnableWindowClosing="True"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+        xmlns:customcontrols="clr-namespace:OOO_NAN.CustomControls"
         mc:Ignorable="d"
-        Title="Autorization" Height="350" Width="450">
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
-            <TextBlock Text="Вход"
-                       FontSize="25"
-                       HorizontalAlignment="Center"
-                       FontWeight="Bold"
-                       Padding="10"
-                       Margin="0 0 0 20"/>
-            <TextBlock Text="Почта"
-                       FontSize="16"/>
-            <TextBox x:Name="LoginBox"
-                     Width="255"
-                     Margin="0 5"
-                     Padding="0.5"
-                     FontSize="16"/>
-            <TextBlock Text="Пароль"
-                       FontSize="16"/>
-            <PasswordBox x:Name="PasswordBox"
-                         Width="255"
-                         Margin="0 5"
-                         Padding="0.5"
-                         FontSize="16"/>
-            <Button Content="Войти"
-                    Click="LoginButton_Click"
-                    HorizontalAlignment="Stretch"
-                    Background="Black"
-                    Foreground="White"
-                    Height="35"
-                    Margin="0 10 0 0"/>
-        </StackPanel>
-    </Grid>
+        FontFamily="{md:MaterialDesignFont}"
+        Foreground="{StaticResource MaterialDesignBody}"
+        MouseDown="Window_MouseDown"
+        FontSize="16"
+        TextElement.FontWeight="Medium"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="Autorization"
+        Height="450"
+        Width="650">
+
+    <Border CornerRadius="5">
+        <Border.Background>
+            <ImageBrush ImageSource="../Images/harvest-combine.png"
+                        Stretch="None"/>
+        </Border.Background>
+
+        <Grid>
+            <Border CornerRadius="10"
+                    Opacity="0.6">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="#EDC65A" Offset="0.25"/>
+                        <GradientStop Color="#F6C68D" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <Grid>
+                <Grid Height="30"
+                      VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.07*"/>
+                        <ColumnDefinition Width="0.07*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="2"
+                            Height="25"
+                            Width="25"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            md:ButtonAssist.CornerRadius="25"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            Command="{Binding CloseWindowCommand}">
+
+                        <md:PackIcon Width="25"
+                                     Height="25"
+                                     Kind="CloseCircleOutline"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     Foreground="#27232a"/>
+                    </Button>
+
+
+                    <Button Grid.Column="1"
+                            Height="10"
+                            Width="22"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            Click="bMinimize_Click">
+
+                        <md:PackIcon Width="25"
+                                     Height="25"
+                                     Kind="WindowMinimize"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     Foreground="#27232a"/>
+                    </Button>
+
+
+                </Grid>
+
+                <Border Background="#332f35"
+                        Height="350"
+                        Width="300"
+                        CornerRadius="20"/>
+
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="20">
+
+                    <TextBlock Text="Вход"
+                               FontSize="25"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold"
+                               Padding="010"
+                               Margin="10"/>
+
+                    <TextBox x:Name="LoginBox"
+                             md:HintAssist.Hint="Электронная почта"
+                             Style="{StaticResource MaterialDesignFilledTextBox}"
+                             Text="{Binding userEmail}"
+                             Width="255"
+                             Margin="0 5"
+                             Padding="0 5" RenderTransformOrigin="0.5,0.5" Height="45"/>
+
+                    <customcontrols:PasswordControl Password="{Binding userPassword}"
+                                                    Width="255"
+                                                    Margin="0 5 0 20"
+                                                    />
+
+                    <Button Content="Войти"
+                            Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                            Height="35"
+                            Width="200"
+                            Margin="0 10 0 0"
+                            FontSize="16"/>
+
+                    <TextBlock Margin="0 10"
+                               TextAlignment="Center">
+                        <Run FontSize="14" Foreground="#a198a9">
+                            Ещё нет аккаунта? 
+                        </Run>
+                        <Run FontSize="14" FontWeight="Bold">
+                            Зарегистрируйся
+                        </Run>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

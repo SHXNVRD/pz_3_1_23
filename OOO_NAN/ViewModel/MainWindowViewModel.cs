@@ -1,15 +1,9 @@
 ﻿using Azure;
 using OOO_NAN.Common;
 using OOO_NAN.Model;
-using OOO_NAN.View;
-using OOO_NAN.ViewModel;
 using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Windows.Controls;
 
 namespace OOO_NAN.ModelView
 {

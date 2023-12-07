@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CustomControls\PasswordControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AddItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CustomControls\PasswordControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AddItem.xaml">
       <SubType>Designer</SubType>
     </Page>

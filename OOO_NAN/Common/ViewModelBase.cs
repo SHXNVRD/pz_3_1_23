@@ -8,8 +8,19 @@ using System.Threading.Tasks;
 
 namespace OOO_NAN.Common
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged, ICloseWindow
     {
+        public Action Close { get; set; }
+        public bool CanClose()
+        {
+            return true;
+        }
+
+        public void CloseWindow()
+        {
+            Close?.Invoke();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

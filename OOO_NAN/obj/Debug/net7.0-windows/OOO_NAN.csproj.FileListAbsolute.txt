@@ -100,3 +100,7 @@ D:\dotnet\repos\OOO_NAN\OOO_NAN\bin\Debug\net7.0-windows\pt\MaterialDesignExtens
 D:\dotnet\repos\OOO_NAN\OOO_NAN\bin\Debug\net7.0-windows\ru-RU\MaterialDesignExtensions.resources.dll
 D:\dotnet\repos\OOO_NAN\OOO_NAN\bin\Debug\net7.0-windows\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
 D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\App.baml
+D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\OOO_NAN.sourcelink.json
+D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\CustomControls\PasswordControl.g.cs
+D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\CustomControls\PasswordControl.baml
