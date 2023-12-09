@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OOO_NAN.Model;
+namespace OOO_NAN.Database;
 
 public partial class Order
 {
@@ -25,7 +25,7 @@ public partial class Order
 
     public virtual DeliveryMethod? DeliveryMethod { get; set; }
 
-    public virtual Employe? Employe { get; set; }
+    public virtual Employee? Employe { get; set; }
 
     public virtual Product? Product { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OOO_NAN.Model;
+namespace OOO_NAN.Database;
 
 public partial class Status
 {

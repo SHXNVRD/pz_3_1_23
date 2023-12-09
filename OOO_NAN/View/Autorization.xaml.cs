@@ -18,7 +18,7 @@ namespace OOO_NAN
 {
     public partial class Autorization : Window
     {
-        OooNanContext db;
+        //OooNanContext db;
         public Autorization()
         {
             InitializeComponent();

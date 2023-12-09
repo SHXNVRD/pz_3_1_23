@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductPage">
     
-    <i:Interaction.Triggers>
+    <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
         </i:EventTrigger>
@@ -38,5 +38,5 @@
                 <DataGridTextColumn Binding="{Binding Description}" Header="Описание" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </Grid>-->
 </Page>

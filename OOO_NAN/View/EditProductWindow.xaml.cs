@@ -22,44 +22,44 @@ namespace OOO_NAN.View
     /// </summary>
     public partial class EditProductWindow : Window
     {
-        private Product product;
+        //private Product product;
 
-        private int Index;
+        //private int Index;
 
-        public EditProductWindow(Product product, int index)
-        {
-            Index = index;
-            this.product = product;
-            InitializeComponent();
-            this.DataContext = product;
+        //public EditProductWindow(Product product, int index)
+        //{
+        //    Index = index;
+        //    this.product = product;
+        //    InitializeComponent();
+        //    this.DataContext = product;
 
-            tbTitle.Text = this.product.Title;
-            tbPrice.Text = Convert.ToString(this.product.Price);
-            tbDescription.Text = this.product.Description;
-        }
+        //    tbTitle.Text = this.product.Title;
+        //    tbPrice.Text = Convert.ToString(this.product.Price);
+        //    tbDescription.Text = this.product.Description;
+        //}
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            product.Title = tbTitle.Text;
-            product.Price = decimal.Parse(tbPrice.Text);
-            product.Description = tbDescription.Text;
+        //private void SaveButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    product.Title = tbTitle.Text;
+        //    product.Price = decimal.Parse(tbPrice.Text);
+        //    product.Description = tbDescription.Text;
 
-            // Сохранение изменений в базу данных
-            using (var db = new OooNanContext())
-            {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+        //    // Сохранение изменений в базу данных
+        //    using (var db = new OooNanContext())
+        //    {
+        //        db.Entry(product).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //    }
 
-            ViewModel.ProductPageViewModel.products[Index] = product;
+        //    ViewModel.ProductPageViewModel.products[Index] = product;
 
-            // Закрытие окна после сохранения изменений
-            this.Close();
-        }
+        //    // Закрытие окна после сохранения изменений
+        //    this.Close();
+        //}
 
-        private void bCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        //private void bCancel_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+        //}
     }
 }

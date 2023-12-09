@@ -1,5 +1,6 @@
 ﻿using OOO_NAN.Model;
 using System.Collections.ObjectModel;
+using OOO_NAN.Database;
 
 namespace OOO_NAN.ViewModel
 {
@@ -39,17 +40,17 @@ namespace OOO_NAN.ViewModel
 						}
 				}
 
-        public RelayCommand LoadDataCommand
+				public RelayCommand LoadDataCommand
 				{
-            get
-            {
-                return loadDataCommand ??
-                    (loadDataCommand = new RelayCommand(obj =>
-                    {
-                        db = new OooNanContext();
-                        Products = new ObservableCollection<Product>(db.Products);
-                    }));
-            }
-        }
+						get
+						{
+								return loadDataCommand ??
+										(loadDataCommand = new RelayCommand(obj =>
+										{
+												db = new OooNanContext();
+												Products = new ObservableCollection<Product>(db.Products);
+										}));
+						}
+				}
 		}
 }

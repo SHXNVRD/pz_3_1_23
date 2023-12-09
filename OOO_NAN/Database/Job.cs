@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
-namespace OOO_NAN.Model;
+namespace OOO_NAN.Database;
 
 public partial class Job
 {
@@ -11,5 +9,5 @@ public partial class Job
 
     public string? Title { get; set; }
 
-    public virtual ICollection<Employe> Employes { get; set; } = new List<Employe>();
+    public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 }

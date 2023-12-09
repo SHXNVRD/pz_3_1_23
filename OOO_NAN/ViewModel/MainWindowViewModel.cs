@@ -1,5 +1,6 @@
 ﻿using Azure;
 using OOO_NAN.Common;
+using OOO_NAN.Database;
 using OOO_NAN.Model;
 using System;
 using System.Collections.ObjectModel;
@@ -71,7 +72,7 @@ namespace OOO_NAN.ModelView
         // Загрузка списка таблиц из БД
         private void FillTables()
         {
-            using(OooNanContext db = new OooNanContext())
+            using (OooNanContext db = new OooNanContext())
             {
                 TableList = new ObservableCollection<string>(db.Model.GetEntityTypes()
                 .Select(n => n.ClrType.Name).ToList());

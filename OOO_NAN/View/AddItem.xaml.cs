@@ -20,38 +20,38 @@ namespace OOO_NAN
     /// </summary>
     public partial class AddItem : Window
     {
-        private OooNanContext db;
+    //    private OooNanContext db;
 
-        public OooNanContext Db
-        {
-            get { return db; }
-            set { db = value; }
-        }
+    //    public OooNanContext Db
+    //    {
+    //        get { return db; }
+    //        set { db = value; }
+    //    }
 
-        public AddItem()
-        {
-            InitializeComponent();
-        }
+    //    public AddItem()
+    //    {
+    //        InitializeComponent();
+    //    }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Product product = new Product();
+    //    private void Button_Click(object sender, RoutedEventArgs e)
+    //    {
+    //        try
+    //        {
+    //            Product product = new Product();
 
-                product.Title = TitleTextBox.Text;
-                product.Price = Convert.ToDecimal(PriceTextBox.Text);
-                product.Description = DescriptionTextBox.Text;
+    //            product.Title = TitleTextBox.Text;
+    //            product.Price = Convert.ToDecimal(PriceTextBox.Text);
+    //            product.Description = DescriptionTextBox.Text;
 
-                Db.Products.Add(product);
-                Db.SaveChanges();
+    //            Db.Products.Add(product);
+    //            Db.SaveChanges();
 
-                MessageBox.Show("Данные успешно добавлены");
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка");
-            }
-        }
+    //            MessageBox.Show("Данные успешно добавлены");
+    //        }
+    //        catch
+    //        {
+    //            MessageBox.Show("Ошибка");
+    //        }
+    //    }
     }
 }

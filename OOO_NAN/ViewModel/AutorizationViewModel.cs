@@ -1,11 +1,10 @@
 ﻿using OOO_NAN.Model;
+using OOO_NAN.Database;
 using System;
 using System.Linq;
 using System.Security;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Documents;
-using System.Windows.Input;
 
 namespace OOO_NAN.ViewModel
 {
@@ -78,7 +77,7 @@ namespace OOO_NAN.ViewModel
             {
                 using (OooNanContext db = new OooNanContext())
                 {
-                    var user = db.Clients.Where(x => (x.Email == UserEmail && x.Client_Password == UserPassword.ToString())).FirstOrDefault();
+                    var user = db.Clients.Where(x => (x.Email == UserEmail && x.Password == UserPassword.ToString())).FirstOrDefault();
 
                     if (user != null)
                         MessageBox.Show("Вы успешно авторизовались");
@@ -88,7 +87,7 @@ namespace OOO_NAN.ViewModel
             {
                 throw;
             }
-           
+
         }
     }
 }

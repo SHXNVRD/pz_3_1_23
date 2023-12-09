@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OOO_NAN.Model;
+namespace OOO_NAN.Database;
 
 public partial class Client
 {
@@ -9,13 +9,15 @@ public partial class Client
 
     public string Name { get; set; } = null!;
 
-    public string Phone { get; set; } = null!;
+    public string? Phone { get; set; }
 
-    public string? Email { get; set; }
+    public string Email { get; set; } = null!;
 
     public string? Addres { get; set; }
 
-    public string? Client_Password { get; set; }
+    public string Password { get; set; } = null!;
+
+    public DateTime? DayOfBirth { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }
