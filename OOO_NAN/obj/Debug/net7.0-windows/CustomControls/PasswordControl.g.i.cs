@@ -64,7 +64,7 @@ namespace OOO_NAN.CustomControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/OOO_NAN;component/customcontrols/passwordcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/OOO_NAN;V1.0.0.0;component/customcontrols/passwordcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\CustomControls\PasswordControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

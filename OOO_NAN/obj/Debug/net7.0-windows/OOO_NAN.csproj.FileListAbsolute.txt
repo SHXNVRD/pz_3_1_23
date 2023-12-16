@@ -104,3 +104,8 @@ D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\OOO_NAN.sourcelink.json
 D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\CustomControls\PasswordControl.g.cs
 D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\CustomControls\PasswordControl.baml
+D:\dotnet\repos\OOO_NAN\OOO_NAN\bin\Debug\net7.0-windows\OxyPlot.dll
+D:\dotnet\repos\OOO_NAN\OOO_NAN\bin\Debug\net7.0-windows\OxyPlot.Wpf.dll
+D:\dotnet\repos\OOO_NAN\OOO_NAN\bin\Debug\net7.0-windows\OxyPlot.Wpf.Shared.dll
+D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\Graph.g.cs
+D:\dotnet\repos\OOO_NAN\OOO_NAN\obj\Debug\net7.0-windows\Graph.baml

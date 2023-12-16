@@ -6,7 +6,7 @@
              xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
              xmlns:views="clr-namespace:OOO_NAN.View"
              xmlns:viewmodels="clr-namespace:OOO_NAN.ViewModel"
-             StartupUri="View/Autorization.xaml">
+             StartupUri="Graph.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
